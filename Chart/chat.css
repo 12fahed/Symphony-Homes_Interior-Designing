@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #d4bdde;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    min-height: 100vh;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 200px; */
+}
+
+.chart{
+    padding: 2rem;
+    border: 1px solid #f49131;
+    border-radius: 1rem;
+    background: #251c35;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Add the following styles for the dropdown button */
+#chartType {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chartType:hover {
+    background-color: #f5f5f5;
+}
+
+/* Style the dropdown content (options) */
+#chartTypeOptions {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+#chartTypeOptions a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#chartTypeOptions a:hover {
+    background-color: #f5f5f5;
+}
