@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register.css" />
+    <script src="register.js" defer></script>
+    <title>Registraion Form</title>
+  </head>
+  <body>
+    <form action="/register.html" class="form" method="post">
+      <h1 class="text-center">Registration Form</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div class="progress-step progress-step-active" data-title="Username"></div>
+        <div class="progress-step" data-title="Contact"></div>
+        <div class="progress-step" data-title="Address"></div>
+        <div class="progress-step" data-title="Role"></div>
+
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" name="usernamev" id="username" placeholder="eg: __fahedkhan"/>
+        </div>
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input type="number" name="phone" id="phone" />
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="form-step">
+
+        <div class="input-group">
+          <label for="country">Country:</label>
+          <select id="country" name="country">
+            <option value="" selected disabled>Select Country</option>
+            <option value="argentina">Argentina</option>
+            <option value="australia">Australia</option>
+            <option value="brazil">Brazil</option>
+            <option value="canada">Canada</option>
+            <option value="china">China</option>
+            <option value="egypt">Egypt</option>
+            <option value="france">France</option>
+            <option value="india">India</option>
+            <option value="italy">Italy</option>
+            <option value="unitedstates">United States</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="state">State:</label>
+          <select id="state" name="state" disabled>
+            <!-- States will be populated dynamically using JavaScript -->
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="city">City:</label>
+          <select id="city" name="city" disabled>
+            <!-- Cities will be populated dynamically using JavaScript -->
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="ID">National ID</label>
+          <input type="number" name="ID" id="ID" placeholder="eg: AADHAR No."/>
+        </div>
+
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+
+      </div>
+
+      <div class="form-step">
+
+        <div class="input-group">
+          <label for="role">Select your role:</label>
+          <select id="role" name="roles">
+            <option value="" selected disabled>Select</option>
+            <option value="patient">Patient</option>
+            <option value="guardian">Guardian</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="passwordv">Enter Password</label>
+          
+            <input type="password" name="passwordv" id="passwordv" placeholder="Password"/>
+            
+          </select>
+        </div>
+
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <input type="submit" value="Submit" class="btn" />
+        </div>
+
+      </div>
+    </form>
+  </body>
+</html>
