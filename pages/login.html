@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <div class="main">
+    <video autoplay loop muted plays-inline class="bg__video">
+        <source src="assets/AdobeStock_472845587_Video_HD_Preview.mov" type="video/mp4" />
+      </video>
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <div class="type">
-                    <label><input type="radio" name="type" value="Owner">Owner</label>
-                    <label><input type="radio" name="type" value="Contractor">Contractor</label>
-                    <label><input type="radio" name="type" value="Member">Member</label>
+                <div class="type" >
+                    <label><input type="radio" name="type" value="Owner" class="radio">Owner</label>
+                    <label><input type="radio" name="type" value="Contractor" class="radio">Contractor</label>
+                    <label><input type="radio" name="type" value="Member" class="radio">Member</label>
                 </div>
                 <form class="login" action="/login" method="POST">
                     <div class="login__field">
@@ -28,19 +32,19 @@
                         <i class="login__icon fas fa-lock"></i>
                         <input type="password" class="login__input" placeholder="Password" name="password">
                     </div>
-                    <button class="button login__submit">
+                    <button class="button login__submit" onclick="submitForm()">
                         <span class="button__text">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>				
                 </form>
-                <div class="social-login">
+                <!-- <div class="social-login">
                     <h3>log in via</h3>
                     <div class="social-icons">
                         <a href="#" class="social-login__icon fab fa-instagram"></a>
                         <a href="#" class="social-login__icon fab fa-facebook"></a>
                         <a href="#" class="social-login__icon fab fa-twitter"></a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="screen__background">
                 <span class="screen__background__shape screen__background__shape4"></span>
@@ -50,6 +54,41 @@
             </div>		
         </div>
     </div>
+</div>
+<script>
+    function submitForm() {
+        var type = document.querySelector('.radio:checked').value;
+        console.log(type)
+
+        if (type==null) {
+            alert('Please select a member');
+            return;
+        }
+        
+
+        const formData = {
+            type
+            // Add other form fields to formData if needed
+        };
+
+        // Assuming you're using fetch for making a POST request
+        fetch('/type', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the backend
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
 </body>
 </html>
 

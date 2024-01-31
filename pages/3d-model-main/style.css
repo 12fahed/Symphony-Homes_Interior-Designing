@@ -51,6 +51,7 @@ nav {
     color: var(--black);
 }
 
+
 .nav__links {
     list-style: none;
     display: flex;

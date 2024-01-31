@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="main">
+      <!-- Video -->
+      <video autoplay loop muted plays-inline class="bg__video">
+        <source src="assets/AdobeStock_472845587_Video_HD_Preview.mov" type="video/mp4" />
+      </video>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp Form - MongoDB</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-6 main">
-                <form action="/register" method="POST">
-                    <h2>SignUp Form</h2>
-                    <input type="text" class="box" id="name" name="name" placeholder="Name" required />
-                    <br>
-                    <input type="text" class="box" id="email" name="email" placeholder="Email" required />
-                    <br>
-                    <input type="text" class="box" id="phno" name="phno" placeholder="Mobile" required />
-                    <br>
-                    <input type="text" class="box" id="password" name="password" placeholder="Password" required />
-                    <br>
-                    <input type="submit" value="Submit" id="submit" />
+      <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" action="/register" method="POST">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" style="color:black" placeholder="Name" id="name" name="name" required>
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="email" class="login__input" placeholder="Email" name="email" id="email" required>
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="password" class="login__input" style="color:black" placeholder="Password" id="password" name="password" required>
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="number" class="login__input" style="color:black" placeholder="Mobile" name="phno" id="phno">
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">Sign up</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
                 </form>
+                <br><p>Already existing account? <a href="login.html" style="text-decoration: none;">Sign In Now</a></p>
+                <!-- <div class="social-login">
+                    <h3>log </h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-login__icon fab fa-instagram"></a>
+                        <a href="#" class="social-login__icon fab fa-facebook"></a>
+                        <a href="#" class="social-login__icon fab fa-twitter"></a>
+                    </div>
+                </div> -->
             </div>
-            <div class="col-md-3">
-            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
         </div>
     </div>
-
-</body>
-
+    </div>
+  </body>
 </html>
+

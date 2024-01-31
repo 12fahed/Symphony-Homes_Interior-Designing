@@ -14,6 +14,7 @@ const port=4000
 
 const bcryptSalt=bcrypt.genSaltSync(10)
 const jwtSecret='fase2j34gj4h5gjdnjs';
+var type;
 
 
 app.use(cookieParser())
@@ -109,11 +110,23 @@ app.post("/register",async (req,res)=>{
     return res.redirect('signup_success.html')
 
 })
+app.post('/type', (req, res) => {
+    type = req.body.type;
+    
+    // Process the selected gender as needed
+    console.log(':', type);
+
+    // Your backend logic here
+
+    // Respond to the client
+    res.json({ message: 'Data received successfully' });
+});
 app.post('/login', async (req, res) => {
     var email = req.body.email;
     var code = req.body.code;
-    var type = req.body.type;
+    
     var password = req.body.password;
+    console.log(type)
 
     try {
         const userDoc = await db.collection('admin').findOne({ email });
@@ -123,7 +136,7 @@ app.post('/login', async (req, res) => {
         }
         const passOk=bcrypt.compareSync(password,userDoc.password)
         if(passOk){
-            return(res.redirect('signup_success.html'))
+            return(res.redirect('./3d-model-main/landingpage.html'))
         }
         else{
             res.status(401).json({message:'wrong credentials'})
