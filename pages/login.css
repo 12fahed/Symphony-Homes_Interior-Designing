@@ -175,8 +175,11 @@ nav ul li a:hover {
   font-weight: 700;
   width: 100%;
   transition: .2s;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: black;
+
+  /* Add the following line to darken the border */
+  border-bottom: 2px solid #333; /* You can adjust the color as needed */
 }
 
 .login__input:active,
@@ -192,17 +195,18 @@ nav ul li a:hover {
   margin-top: 30px;
   padding: 16px 20px;
   border-radius: 26px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #333; /* Darken the border color */
   text-transform: uppercase;
   font-weight: 700;
   display: flex;
   align-items: center;
   width: 100%;
-  color: #979797;
+  color: #333; /* Darken the text color */
   box-shadow: 0px 2px 2px #8c8c8c;
   cursor: pointer;
   transition: .2s;
 }
+
 
 .login__submit:active,
 .login__submit:focus,
@@ -221,23 +225,26 @@ nav ul li a:hover {
   text-align: center;
   margin-bottom: 10px;
   font-size: 1.5rem;
-  color: #b3b3b3;
+  color: #525151;
 }
 
 .type label {
   display: inline-block;
   margin-right: 10px;
-  color: #b3b3b3;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+
 }
 
-.type input[type="radio"] {
+/* .type input[type="radio"] {
   margin-right: 5px;
   color: #b3b3b3;
+  font-family: "Roboto", sans-serif;
 }
 
 .type input[type="radio"]:checked+label {
   color: var(--primary-color);
-}
+} */
 
 .screen__background {
   position: absolute;
@@ -277,4 +284,8 @@ nav ul li a:hover {
   top: 420px;
   right: 50px;
   border-radius: 60px;
+}
+
+.login__input::placeholder {
+  color: rgb(71, 71, 71); /* Set the desired color for the placeholder text */
 }
