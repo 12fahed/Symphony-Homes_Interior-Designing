@@ -4,6 +4,7 @@ const cors=require('cors')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const cookieParser=require('cookie-parser')
+const nodemailer=require('nodemailer')
 require('dotenv').config()
 const app=express()
 const port=4000
@@ -20,7 +21,7 @@ app.use(cors({
 }))
 
 app.get('/', (req,res)=>{
-    res.send("good")
+    res.send("hello")
 })
 
 mongoose.connect(process.env.MONGOURL)
