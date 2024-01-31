@@ -136,8 +136,13 @@ app.post('/login', async (req, res) => {
         }
         const passOk=bcrypt.compareSync(password,userDoc.password)
         if(passOk){
-           
+            if((type=="Member")||(type=="Owner"))
+           {
             return(res.redirect('postlogin.html'))
+           }
+           else{
+            return(res.redirect('admindashboard.html'))
+           }
            
         }
         else{
