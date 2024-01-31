@@ -131,9 +131,7 @@
 
     </style>
     <script>
-       fetch('/search',{
-        method:'GET'
-       })
+       fetch(`http://localhost:4000/search`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
