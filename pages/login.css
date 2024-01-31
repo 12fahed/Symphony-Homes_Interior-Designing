@@ -179,7 +179,7 @@ nav ul li a:hover {
   color: black;
 
   /* Add the following line to darken the border */
-  border-bottom: 2px solid #333; /* You can adjust the color as needed */
+  border-bottom: 2px solid black; /* You can adjust the color as needed */
 }
 
 .login__input:active,
@@ -202,9 +202,11 @@ nav ul li a:hover {
   align-items: center;
   width: 100%;
   color: #333; /* Darken the text color */
-  box-shadow: 0px 2px 2px #8c8c8c;
+  /* box-shadow: 0px 2px 2px #8c8c8c; */
   cursor: pointer;
   transition: .2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 
@@ -213,12 +215,22 @@ nav ul li a:hover {
 .login__submit:hover {
   border-color: var(--button-hover);
   outline: none;
+  transform: scale(1.05); /* Adjust the scale factor as needed */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button__icon {
   font-size: 24px;
   margin-left: auto;
   color: #aeaeae;
+}
+
+.button__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 15px;
 }
 
 .type {
