@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>3d model</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.37.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+	<link href="style.css" rel="stylesheet">
+	<!-- The following libraries and polyfills are recommended to maximize browser support -->
+    <!-- NOTE: you must adjust the paths as appropriate for your project -->
+    
+    <!--  REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+
+    <!--  OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+	<!--     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script> -->
+
+    <!--  OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+	    <!-- <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script> -->
+    
+    <!--  OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+	<!--
+   <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+	-->
+</head>
+
+<body>
+	<nav>
+        <div class="nav__logo"><a href="#"></a></div>
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Student</a></li>
+          <li class="link"><a href="./A.html" target="_blank">Assessment</a></li>
+          <li class="link"><a href="#stats">Workspace</a></li>
+          <li class="link"><a href="#blog">Courses</a></li>
+          <li class="link"><a href="resources.html">Resources</a></li>
+          <li class="link"><a href="comment.html">Community</a></li>
+        </ul>
+    </nav>
+	<!-- 3D content for your site: -->
+	<div class="container">
+	<div class="company-name">
+		<h1></h1>
+	</div>
+	<div class="model-bg">
+		<model-viewer src="scene.gltf" alt="Slum house" shadow-intensity="1" camera-controls auto-rotate disable-zoom >
+		</model-viewer>
+	</div>
+
+	<div class="text typewriter">
+		<h1>Every Room Tells a Story,<br> Let Us Design Yours.</h1>
+		<button class="my-button" style="margin:30px" style="text-decoration: none; color: grey" ><a href="register.html">Start your journey</a></button>
+	</div>
+    
+	<!-- 💁 Include both scripts below to support all browsers! -->
+
+	<!-- Loads <model-viewer> for modern browsers: -->
+	  <script type="module"
+		  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+	  </script>
+	<!-- Loads <model-viewer> for old browsers like IE11: -->
+	<!-- <script nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+	</script> -->
+	<section class="section__container about__container" id="about">
+		<div class="about__image">
+		  <img src="assets/about.jpg" alt="about" />
+		</div>
+		<div class="about__content">
+		  <h3>ABOUT US</h3>
+		  <h2 class="section__header">
+			Award winning real estate company in Dubai
+		  </h2>
+		  <p class="section__subheader">
+			Whether you're a first-time homebuyer, a seasoned investor, or simply
+			looking for a change, we're here to guide you every step of the way.
+			Our mission is to make your real estate journey smooth and successful.
+		  </p>
+		  <div class="about__grid">
+			<div class="about__card">
+			  <h4>PREVIOUS PROJECTS</h4>
+			  <p>34+</p>
+			</div>
+			<div class="about__card">
+			  <h4>YEARS EXPERIENCE</h4>
+			  <p>20+</p>
+			</div>
+			<div class="about__card">
+			  <h4>ONGOING PROJECTS</h4>
+			  <p>12</p>
+			</div>
+		  </div>
+		</div>
+	  </section>
+  
+	  <!-- <section class="project__container" id="project">
+		<div class="project__header">
+		  <div>
+			<h2 class="section__header">Ongoing Projects</h2>
+			<p class="section__subheader">
+			  We are dedicated to helping you find your dream property with ease
+			  and confidence.
+			</p>
+		  </div>
+		  <div class="project__nav">
+			<span><i class="ri-arrow-left-line"></i></span>
+			<span><i class="ri-arrow-right-line"></i></span>
+		  </div>
+		</div>
+		
+		<div class="swiper" style="display: flex;">
+		  
+		  <div class="swiper-wrapper">
+			
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-1.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Palm View Apartments</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Palm Jumeirah, Dubai
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-half-fill"></i></span>
+					  <span><i class="ri-star-line"></i></span>
+					</div>
+					<div class="price">1200$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-2.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Cityscape Residences</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Downtown Dubai
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-half-fill"></i></span>
+					</div>
+					<div class="price">1000$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-3.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Marina Heights</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Dubai Marina
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					</div>
+					<div class="price">1100$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-4.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Desert Rose Flats</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Al Barsha, Dubai
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-half-fill"></i></span>
+					</div>
+					<div class="price">1500$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-5.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Golden Sands Suites</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Bur Dubai
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-half-fill"></i></span>
+					  <span><i class="ri-star-line"></i></span>
+					</div>
+					<div class="price">1300$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-slide">
+			  <div class="project__card">
+				<img src="assets/project-6.jpg" alt="project" />
+				<div class="project__content">
+				  <div class="project__details">
+					<h4>Bliss Residences</h4>
+					<p>
+					  <span><i class="ri-map-pin-line"></i></span>
+					  Jumeirah Beach, Dubai
+					</p>
+					<button>Book Now</button>
+				  </div>
+				  <div class="project__ratings">
+					<div class="stars">
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-fill"></i></span>
+					  <span><i class="ri-star-line"></i></span>
+					</div>
+					<div class="price">1400$</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+  
+	  <section class="section__container contact__container" id="contact">
+		<div class="contact__image">
+		  <img src="assets/contact.jpg" alt="contact" />
+		</div>
+		<div class="contact__content">
+		  <h2 class="section__header">Contact Us</h2>
+		  <p class="section__subheader">
+			Discover the difference, where expertise meets excellence in real
+			estate. Let's embark on this exciting journey together.
+		  </p>
+		  <form action="#">
+			<div class="form__group">
+			  <input type="text" placeholder="First Name" />
+			  <input type="text" placeholder="Last Name" />
+			</div>
+			<div class="form__group">
+			  <input type="text" placeholder="Email Address" />
+			  <input type="text" placeholder="Phone Number" />
+			</div>
+			<textarea cols="30" rows="5" placeholder="Description"></textarea>
+			<button>SEND MESSAGE</button>
+		  </form>
+		</div>
+	  </section> -->
+  
+	  <footer class="footer">
+		<div class="section__container footer__container">
+		  <div class="footer__col">
+			<h4>HOLUX</h4>
+			<p>
+			  Our team of seasoned professionals is committed to providing you
+			  with exceptional service, in-depth market knowledge, and
+			  personalized solutions tailored to your unique needs.
+			</p>
+			<div class="footer__socials">
+			  <span>
+				<a href="#"><i class="ri-facebook-circle-fill"></i></a>
+			  </span>
+			  <span>
+				<a href="#"><i class="ri-instagram-line"></i></a>
+			  </span>
+			  <span>
+				<a href="#"><i class="ri-twitter-fill"></i></a>
+			  </span>
+			</div>
+		  </div>
+		  <div class="footer__col">
+			<h4>Company Info</h4>
+			<a href="#home">Home</a>
+			<a href="#about">About</a>
+			<a href="#project">Project</a>
+			<a href="#contact">Contact</a>
+		  </div>
+		  <div class="footer__col">
+			<h4>Resources</h4>
+			<a href="#">Terms</a>
+			<a href="#">Conditions</a>
+			<a href="#">Policy</a>
+		  </div>
+		  <div class="footer__col">
+			<h4>Contact</h4>
+			<a href="#">
+			  <span><i class="ri-mail-line"></i></span> holux@gmail.com
+			</a>
+			<a href="#">
+			  <span><i class="ri-phone-line"></i></span> +91 9876543210
+			</a>
+		  </div>
+		</div>
+		<div class="footer__bar">
+		  Copyright © 2023 Web Design Mastery. All rights reserved.
+		</div>
+	  </footer>
+  
+	  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	  <script src="main.js"></script>
+</div>
+
+
+</body>
+
+</html>
