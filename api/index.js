@@ -47,11 +47,22 @@ db.once('open',()=>console.log("connected"))
 app.get('/test',(req,res)=>{
     res.json('test ok');
 });
-app.post("/register",(req,res)=>{
+app.post("/register",async (req,res)=>{
     var name = req.body.name;
     var email = req.body.email;
     var phno = req.body.phno;
     var password = req.body.password;
+
+   
+        // Check if a user with the email or mobile number already exists
+        const existingUser = await db.collection('admin').findOne({
+            $or: [{ email: email }, { phno: phno }]
+        });
+
+        if (existingUser) {
+            return res.status(409).json({ message: 'User with this email or mobile number already exists' });
+        }
+
     var randomNumber = parseInt(new Date().getTime());
     console.log(randomNumber);
     var html=`Hello ${name} welcome to SymphonySpaces 
