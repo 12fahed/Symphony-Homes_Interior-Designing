@@ -1,191 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Roboto:wght@400;500&family=Sedgwick+Ave+Display&display=swap");
+
 :root {
-  --primary-color: #004D49;
+  --primary-color: #0ea5e9;
+  --primary-color-dark: #0284c7;
+  --text-light: #f3f4f6;
 }
 
-*,
-*::before,
-*::after {
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  background-image: url(img/bgg.png);
+  font-family: "Roboto", sans-serif;
 }
 
-/* Global Stylings */
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-input {
-  display: block;
+.main {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  background-color: #FFF6E5;
-}
-
-.width-50 {
-  width: 50%;
-}
-
-.ml-auto {
-  margin-left: auto;
-}
-
-.text-center {
-  text-align: center;
-  color: #004D49;
-}
-
-/* Progressbar */
-.progressbar {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   position: relative;
+  padding: 0 5rem;
   display: flex;
-  justify-content: space-between;
-  counter-reset: step;
-  margin: 2rem 0 4rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.progressbar::before,
-.progress {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 4px;
+nav {
   width: 100%;
-  background-color: #dcdcdc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+nav ul {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color-dark);
+}
+
+.content {
+  text-align: center;
+  color: var(--text-light);
+}
+
+.content h1 {
+  font-family: "Sedgwick Ave Display", cursive;
+  font-size: 7rem;
+}
+
+.content h1 span {
+  font-size: 5rem;
+}
+
+.content p {
+  font-family: "Alkatra", cursive;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.content .promo {
+  padding: 0.5rem;
+  width: 300px;
+  margin: auto;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-family: "Alkatra", cursive;
+  background-color: var(--primary-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.content .promo:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
-.progress {
-  background-color: var(--primary-color);
-  width: 0%;
-  transition: 0.3s;
+@media (min-aspect-ratio: 16/9) {
+  .bg__video {
+    width: 100%;
+    height: auto;
+  }
 }
 
-.progress-step {
-  width: 2.1875rem;
-  height: 2.1875rem;
-  background-color: #dcdcdc;
-  border-radius: 50%;
+@media (max-aspect-ratio: 16/9) {
+  .bg__video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.screen {
+  background: linear-gradient(90deg, #5B5D5C, #8E908F);
+  position: relative;
+  height: 600px;
+  width: 700px;
+  box-shadow: 0px 0px 24px #5B5D5C;
+  opacity: 0.9;
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  width: 400px;
+  padding: 30px;
+  padding-top: 20px;
+  background-color: var(--background-light);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+
+.login__icon {
+  position: absolute;
+  top: 30px;
+  color: #b3b3b3;
+}
+
+.login__input {
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 100%;
+  transition: .2s;
+  font-size: 1.1rem;
+  color: black;
+
+  /* Add the following line to darken the border */
+  border-bottom: 2px solid black; /* You can adjust the color as needed */
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: var(--input-focus);
+}
+
+.login__submit {
+  background: var(--background-light);
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #333; /* Darken the border color */
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #333; /* Darken the text color */
+  /* box-shadow: 0px 2px 2px #8c8c8c; */
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: var(--button-hover);
+  outline: none;
+  transform: scale(1.05); /* Adjust the scale factor as needed */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button__icon {
+  font-size: 24px;
+  margin-left: auto;
+  color: #aeaeae;
+}
+
+.button__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+.type {
+  text-align: center;
+  margin-bottom: 20px; /* Increase the margin for better spacing */
+  font-size: 1.2rem;
+  color: #525151;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.progress-step::before {
-  counter-increment: step;
-  content: counter(step);
+.type label {
+  display: flex; /* Change to flex to align text and radio button in a row */
+  align-items: center; /* Align items vertically in the center */
+  margin-right: 20px; /* Increase the margin between radio options for better spacing */
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+
 }
 
-.progress-step::after {
-  content: attr(data-title);
+.type input[type="radio"] {
+  margin-right: 5px;
+  color: #b3b3b3;
+  font-family: "Roboto", sans-serif;
+}
+
+.type input[type="radio"]:checked+label {
+  color: var(--primary-color);
+} 
+
+.screen__background {
   position: absolute;
-  top: calc(100% + 0.5rem);
-  font-size: 0.85rem;
-  color: #666;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
 }
 
-.progress-step-active {
-  background-color: var(--primary-color);
-  color: #f3f3f3;
+.screen__background__shape {
+  transform: rotate(0deg);
+  position: absolute;
 }
 
-/* Form */
-.form {
-  width: clamp(320px, 30%, 420px);
-  margin: 0 auto;
-  border: 2px solid #ccc;
-  border-radius: 0.35rem;
-  padding: 1.5rem;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+.screen__background__shape2 {
+  height: 220px;
+  width: 220px;
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
 }
 
-.form-step {
-  display: none;
-  transform-origin: top;
-  animation: animate 0.5s;
+.screen__background__shape3 {
+  height: 540px;
+  width: 190px;
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
 }
 
-.form-step-active {
-  display: block;
+.screen__background__shape4 {
+  height: 400px;
+  width: 200px;
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
 }
 
-.input-group {
-  margin: 2rem 0;
-
+.login__input::placeholder {
+  color: rgb(71, 71, 71); /* Set the desired color for the placeholder text */
 }
-
-.input-group select:hover {
-  cursor: pointer;
-}
-
-
-@keyframes animate {
-  from {
-    transform: scale(1, 0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1, 1);
-    opacity: 1;
-  }
-}
-
-/* Button */
-.btns-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.btn {
-  padding: 0.75rem;
-  display: block;
-  text-decoration: none;
-  background-color: var(--primary-color);
-  color: #f3f3f3;
-  text-align: center;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn:hover {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
-}
-
-.align_address{
-  align-items: center;
-}
-
-/* Style for select elements */
-.input-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #f7f7f7;
-}
-
-/* Style for the labels */
-.input-group label {
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* Style for the disabled select elements */
-.input-group select:disabled {
-  background-color: #eee;
-  color: #999;
-}
-

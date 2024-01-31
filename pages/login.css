@@ -175,8 +175,11 @@ nav ul li a:hover {
   font-weight: 700;
   width: 100%;
   transition: .2s;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: black;
+
+  /* Add the following line to darken the border */
+  border-bottom: 2px solid black; /* You can adjust the color as needed */
 }
 
 .login__input:active,
@@ -192,23 +195,28 @@ nav ul li a:hover {
   margin-top: 30px;
   padding: 16px 20px;
   border-radius: 26px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #333; /* Darken the border color */
   text-transform: uppercase;
   font-weight: 700;
   display: flex;
   align-items: center;
   width: 100%;
-  color: #979797;
-  box-shadow: 0px 2px 2px #8c8c8c;
+  color: #333; /* Darken the text color */
+  /* box-shadow: 0px 2px 2px #8c8c8c; */
   cursor: pointer;
   transition: .2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
   border-color: var(--button-hover);
   outline: none;
+  transform: scale(1.05); /* Adjust the scale factor as needed */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button__icon {
@@ -217,27 +225,38 @@ nav ul li a:hover {
   color: #aeaeae;
 }
 
+.button__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
 .type {
   text-align: center;
   margin-bottom: 10px;
   font-size: 1.5rem;
-  color: #b3b3b3;
+  color: #525151;
 }
 
 .type label {
   display: inline-block;
   margin-right: 10px;
-  color: #b3b3b3;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+
 }
 
-.type input[type="radio"] {
+/* .type input[type="radio"] {
   margin-right: 5px;
   color: #b3b3b3;
+  font-family: "Roboto", sans-serif;
 }
 
 .type input[type="radio"]:checked+label {
   color: var(--primary-color);
-}
+} */
 
 .screen__background {
   position: absolute;
@@ -277,4 +296,8 @@ nav ul li a:hover {
   top: 420px;
   right: 50px;
   border-radius: 60px;
+}
+
+.login__input::placeholder {
+  color: rgb(71, 71, 71); /* Set the desired color for the placeholder text */
 }
