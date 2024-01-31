@@ -5,6 +5,9 @@ const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const cookieParser=require('cookie-parser')
 const nodemailer=require('nodemailer')
+const bodyparser=require('body-parser')
+const Admin=require("./models/Admin.js")
+const bodyParser = require('body-parser')
 require('dotenv').config()
 const app=express()
 const port=4000
@@ -14,75 +17,100 @@ const jwtSecret='fase2j34gj4h5gjdnjs';
 
 
 app.use(cookieParser())
+app.use(bodyParser.json())
 app.use(express.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
+app.use(express.static('../pages'))
 app.use(cors({
     credentials:true,
     origin:'http://127.0.0.1:5501'
 }))
 
+
 app.get('/', (req,res)=>{
-    res.send("hello")
+    res.set({
+        "Allow-access-Allow-origin":'*'
+    })
+    return(res.redirect('register.html'))
 })
 
 mongoose.connect(process.env.MONGOURL)
+var db=mongoose.connection
+db.on('error',()=>console.log("error"))
+db.once('open',()=>console.log("connected"))
 
-app.listen(port,()=>{
-    console.log(`app running on ${port}`)
-})
 
 
 
 app.get('/test',(req,res)=>{
     res.json('test ok');
 });
-app.post('/register',async (req,res)=>{
-    const{name,email,password}=req.body;
-    try{const UserDoc=await User.create({
-        name,
-        email,
-        password:bcrypt.hashSync(password,bcryptSalt)
-    })
-    res.json(UserDoc);}
-   catch(e){
-    res.status(422).json(e);
-   }
-})
-app.post('/login',async (req,res)=>{
-    const {email,password}=req.body;
-    const UserDoc=await User.findOne({email})
-    if(UserDoc){
-        const passOk=bcrypt.compareSync(password,UserDoc.password)
-        if(passOk){
-            jwt.sign({email:UserDoc.email,id:UserDoc.id},jwtSecret,{},(err,token)=>{
-                if(err) throw err;
-                res.cookie('token',token).json(UserDoc)
-            })
-            
+app.post("/register",async (req,res)=>{
+    var name = req.body.name;
+    var email = req.body.email;
+    var phno = req.body.phno;
+    var password = req.body.password;
+
+   
+        // Check if a user with the email or mobile number already exists
+        const existingUser = await db.collection('admin').findOne({
+            $or: [{ email: email }, { phno: phno }]
+        });
+
+        if (existingUser) {
+            return res.status(409).json({ message: 'User with this email or mobile number already exists' });
         }
-        else{
-            res.status(422).json('pass not ok')
-        }
-    }
-    else{
-        res.json('not found')
-    }
-})
-app.get('/profile',(req,res)=>{
-    const {token}=req.cookies;
-    if(token){
-        jwt.verify(token,jwtSecret,{},async (err,userData)=>{
-            if(err) throw err;
-            const {name,email,id}=await User.findById (userData.id) 
-            res.json({name,email,id})
+
+    var randomNumber = parseInt(new Date().getTime());
+    console.log(randomNumber);
+    var html=`Hello ${name} welcome to SymphonySpaces 
+    your unique code is ${randomNumber}`
+    console.log(html)
+
+    async function main(){
+        const transporter=nodemailer.createTransport({
+           host:'smtp@gmail.com',
+           service:'Gmail',
+           port:465,
+           secure:true,
+           auth:{
+            user:'symphonyspaces@gmail.com',
+            pass:'jccutseulqxsufuw'
+           }  
+        });
+        const info=await transporter.sendMail({
+            from:'symphonyspaces@gmail.com',
+            to:email,
+            subject: "welcome to symphonyspaces",
+            html: html,
         })
+        console.log("Message sent:"+info.messageId)
     }
-    else{
-        res.json(null);
+    main().catch(e=>console.log(e))
+
+    var data = {
+        "name": name,
+        "email" : email,
+        "phno": phno,
+        "password" : bcrypt.hashSync(password,bcryptSalt),
+        "id":randomNumber
     }
-    
+    console.log(data)
+
+    db.collection('admin').insertOne(data,(err,collection)=>{
+        if(err){
+            throw err;
+        }
+        console.log("Record Inserted Successfully");
+    });
+
+    return res.redirect('signup_success.html')
+
 })
-app.post('/logout',(req,res)=>{
-    res.cookie('token','').json(true);
+app.listen(port,()=>{
+    console.log(`app running on ${port}`)
 })
 
 
