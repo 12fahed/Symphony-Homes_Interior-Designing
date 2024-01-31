@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>3d model</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.37.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+	<link href="./3d-model-main/style.css" rel="stylesheet">
+	<!-- The following libraries and polyfills are recommended to maximize browser support -->
+    <!-- NOTE: you must adjust the paths as appropriate for your project -->
+    
+    <!--  REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+
+    <!--  OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+	<!--     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script> -->
+
+    <!--  OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+	    <!-- <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script> -->
+    
+    <!--  OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+	<!--
+   <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+	-->
+</head>
+
+<body>
+	<nav>
+        <div class="nav__logo"><a href="#"></a></div>
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Student</a></li>
+          <li class="link"><a href="./A.html" target="_blank">Assessment</a></li>
+          <li class="link"><a href="#stats">Workspace</a></li>
+          <li class="link"><a href="#blog">Courses</a></li>
+          <li class="link"><a href="resources.html">Resources</a></li>
+          <li class="link"><a href="comment.html">Community</a></li>
+        </ul>
+    </nav>
+	<!-- 3D content for your site: -->
+	<div class="container">
+	<div class="company-name">
+		<h1></h1>
+	</div>
+	<div class="model-bg">
+		<model-viewer src="vianney_house_2/scene.gltf" alt="Slum house" shadow-intensity="1" camera-controls auto-rotate disable-zoom >
+		</model-viewer>
+	</div>
+
+	<div class="text typewriter">
+		<h1>Every Room Tells a Story,<br> Let Us Design Yours.</h1>
+		<button class="my-button" style="margin:30px" style="text-decoration: none; color: grey" ><a href="register.html">Go to Dashboard</a></button>
+	</div>
+    
+	<!-- 💁 Include both scripts below to support all browsers! -->
+
+	<!-- Loads <model-viewer> for modern browsers: -->
+	  <script type="module"
+		  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+	  </script>
+	<!-- Loads <model-viewer> for old browsers like IE11: -->
+	<!-- <script nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+	</script> -->
+	<br><br><br><br><br><br><br><br><br>
+	<section class="section__container about__container" id="about">
+		
+		<div class="about__image">
+		  <img src="assets/about.jpg" alt="about" />
+		</div>
+		<div class="about__content">
+		  <h3>ABOUT US</h3>
+		  <h2 class="section__header">
+			Award winning real estate company in Dubai
+		  </h2>
+		  <p class="section__subheader">
+			Whether you're a first-time homebuyer, a seasoned investor, or simply
+			looking for a change, we're here to guide you every step of the way.
+			Our mission is to make your real estate journey smooth and successful.
+		  </p>
+		  <div class="about__grid">
+			<div class="about__card">
+			  <h4>PREVIOUS PROJECTS</h4>
+			  <p>34+</p>
+			</div>
+			<div class="about__card">
+			  <h4>YEARS EXPERIENCE</h4>
+			  <p>20+</p>
+			</div>
+			<div class="about__card">
+			  <h4>ONGOING PROJECTS</h4>
+			  <p>12</p>
+			</div>
+		  </div>
+		</div>
+	  </section>
+  
+      <section class="section category" aria-label="category">
+        <div class="container">
+
+          <p class="section-subtitle">Categories</p>
+
+          <h2 class="h2 section-title">
+            
+          </h2>
+
+          <p class="section-text">
+            What to study
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="category-card" style="--color: 170, 75%, 41%">
+
+                <div class="card-icon">
+                  <img src="./assets/images/category-1.svg" width="40" height="40" loading="lazy"
+                    alt="Online Degree Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Group Study Rooms</a>
+                </h3>
+
+                <p class="card-text">
+                  Connect with peers.<br>
+                </p>
+                <br>
+                <a href="login.html"><span class="card-badge">Enter</span></a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 351, 83%, 61%">
+
+                <div class="card-icon">
+                  <img src="./assets/images/category-2.svg" width="40" height="40" loading="lazy"
+                    alt="Non-Degree Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Resource Library</a>
+                </h3>
+
+                <p class="card-text">
+                  Find and share anything you need.
+                </p>
+
+                <a href="login.html"><span class="card-badge">Enter</span></a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 229, 75%, 58%">
+
+                <div class="card-icon">
+                  <img src="./assets/images/category-3.svg" width="40" height="40" loading="lazy"
+                    alt="Off-Campus Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Discussion and Doubt Forums</a>
+                </h3>
+
+                <p class="card-text">
+                  Place to place your doubts.
+                </p>
+
+              <a href="login.html"><span class="card-badge">Enter</span></a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 42, 94%, 55%">
+
+                <div class="card-icon">
+                  <img src="./assets/images/category-4.svg" width="40" height="40" loading="lazy"
+                    alt="Hybrid Distance Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Dashboard</a>
+                </h3>
+
+                <p class="card-text">
+                 Analytics and progress tracking
+                </p>
+
+                <a href="login.html"><span class="card-badge">Enter</span></a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+	  <footer class="footer">
+		<div class="section__container footer__container">
+		  <div class="footer__col">
+			<h4>HOLUX</h4>
+			<p>
+			  Our team of seasoned professionals is committed to providing you
+			  with exceptional service, in-depth market knowledge, and
+			  personalized solutions tailored to your unique needs.
+			</p>
+			<div class="footer__socials">
+			  <span>
+				<a href="#"><i class="ri-facebook-circle-fill"></i></a>
+			  </span>
+			  <span>
+				<a href="#"><i class="ri-instagram-line"></i></a>
+			  </span>
+			  <span>
+				<a href="#"><i class="ri-twitter-fill"></i></a>
+			  </span>
+			</div>
+		  </div>
+		  <div class="footer__col">
+			<h4>Company Info</h4>
+			<a href="#home">Home</a>
+			<a href="#about">About</a>
+			<a href="#project">Project</a>
+			<a href="#contact">Contact</a>
+		  </div>
+		  <div class="footer__col">
+			<h4>Resources</h4>
+			<a href="#">Terms</a>
+			<a href="#">Conditions</a>
+			<a href="#">Policy</a>
+		  </div>
+		  <div class="footer__col">
+			<h4>Contact</h4>
+			<a href="#">
+			  <span><i class="ri-mail-line"></i></span> holux@gmail.com
+			</a>
+			<a href="#">
+			  <span><i class="ri-phone-line"></i></span> +91 9876543210
+			</a>
+		  </div>
+		</div>
+		<div class="footer__bar">
+		  Copyright © 2023 Web Design Mastery. All rights reserved.
+		</div>
+	  </footer>
+  
+	  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	  <script src="main.js"></script>
+</div>
+
+
+</body>
+
+</html>
