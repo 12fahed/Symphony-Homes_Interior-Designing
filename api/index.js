@@ -136,7 +136,9 @@ app.post('/login', async (req, res) => {
         }
         const passOk=bcrypt.compareSync(password,userDoc.password)
         if(passOk){
-            return(res.redirect('./3d-model-main/landingpage.html'))
+           
+            return(res.redirect('postlogin.html'))
+           
         }
         else{
             res.status(401).json({message:'wrong credentials'})
