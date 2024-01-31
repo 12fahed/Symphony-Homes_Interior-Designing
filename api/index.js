@@ -126,7 +126,7 @@ app.post('/login', async (req, res) => {
             return(res.redirect('signup_success.html'))
         }
         else{
-            alert("wrong password")
+            res.status(401).json({message:'wrong credentials'})
         }
         
     } catch (error) {
