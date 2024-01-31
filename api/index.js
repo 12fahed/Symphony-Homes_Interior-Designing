@@ -52,12 +52,39 @@ app.post("/register",(req,res)=>{
     var email = req.body.email;
     var phno = req.body.phno;
     var password = req.body.password;
+    var randomNumber = parseInt(new Date().getTime());
+    console.log(randomNumber);
+    var html=`Hello ${name} welcome to SymphonySpaces 
+    your unique code is ${randomNumber}`
+    console.log(html)
+
+    async function main(){
+        const transporter=nodemailer.createTransport({
+           host:'smtp@gmail.com',
+           service:'Gmail',
+           port:465,
+           secure:true,
+           auth:{
+            user:'symphonyspaces@gmail.com',
+            pass:'jccutseulqxsufuw'
+           }  
+        });
+        const info=await transporter.sendMail({
+            from:'symphonyspaces@gmail.com',
+            to:email,
+            subject: "welcome to symphonyspaces",
+            html: html,
+        })
+        console.log("Message sent:"+info.messageId)
+    }
+    main().catch(e=>console.log(e))
 
     var data = {
         "name": name,
         "email" : email,
         "phno": phno,
-        "password" : bcrypt.hashSync(password,bcryptSalt)
+        "password" : bcrypt.hashSync(password,bcryptSalt),
+        "id":randomNumber
     }
     console.log(data)
 
