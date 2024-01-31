@@ -48,12 +48,24 @@ db.once('open',()=>console.log("connected"))
 app.get('/test',(req,res)=>{
     res.json('test ok');
 });
+
+app.post('/type', (req, res) => {
+    type = req.body.type;
+    
+    // Process the selected gender as needed
+    console.log(':', type);
+
+    // Your backend logic here
+
+    // Respond to the client
+    res.json({ message: 'Data received successfully' });
+});
+
 app.post("/register",async (req,res)=>{
     var name = req.body.name;
     var email = req.body.email;
     var phno = req.body.phno;
     var password = req.body.password;
-
    
         // Check if a user with the email or mobile number already exists
         const existingUser = await db.collection('admin').findOne({
@@ -96,7 +108,8 @@ app.post("/register",async (req,res)=>{
         "email" : email,
         "phno": phno,
         "password" : bcrypt.hashSync(password,bcryptSalt),
-        "id":randomNumber
+        "id":randomNumber,
+        "role": type
     }
     console.log(data)
 
@@ -110,17 +123,7 @@ app.post("/register",async (req,res)=>{
     return res.redirect('signup_success.html')
 
 })
-app.post('/type', (req, res) => {
-    type = req.body.type;
-    
-    // Process the selected gender as needed
-    console.log(':', type);
 
-    // Your backend logic here
-
-    // Respond to the client
-    res.json({ message: 'Data received successfully' });
-});
 app.post('/login', async (req, res) => {
     var email = req.body.email;
     var code = req.body.code;
