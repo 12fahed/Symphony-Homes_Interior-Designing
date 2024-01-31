@@ -21,8 +21,8 @@
 
                     <div class="type" >
                         <label><input type="radio" name="type" value="Owner" class="radio">Owner</label>
-                        <label><input type="radio" name="type" value="Contractor" class="radio">Contractor</label>
-                        <label><input type="radio" name="type" value="Member" class="radio">Member</label>
+                        <label><input id="contractor" type="radio" name="type" value="Contractor" class="radio">Contractor</label>
+                        <label><input id="member" type="radio" name="type" value="Member" class="radio">Member</label>
                     </div> 
 
                     <div class="login__field">
@@ -40,6 +40,9 @@
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
                         <input type="number" class="login__input" style="color:black" placeholder="Mobile" name="phno" id="phno">
+                    </div>
+                    <div class="login__field">
+                        <input type="number" class="login__input" style="color:black; visibility: hidden;" placeholder="Project Code" name="number" id="number">
                     </div>
                     <button class="button login__submit" onclick="submitForm()">
                         <span class="button__text">Sign up</span>
@@ -100,6 +103,8 @@
             });
         }
     </script>
+
+    <script src="./register.js"></script>
 
   </body>
 </html>
