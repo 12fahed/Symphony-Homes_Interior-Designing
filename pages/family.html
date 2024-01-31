@@ -130,6 +130,25 @@
       }
 
     </style>
+    <script>
+       fetch('/search',{
+        method:'GET'
+       })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the received data
+                    console.log('Received data:', data);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        
+    </script>
 
   </body>
 </html>
