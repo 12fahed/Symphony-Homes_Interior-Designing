@@ -11,18 +11,22 @@
         <div class="screen">
             <div class="screen__content">
                 <div class="type">
-                    <label><input type="radio" name="login">Owner</label>
-                    <label><input type="radio" name="login">Contractor</label>
-                    <label><input type="radio" name="login">Member</label>
+                    <label><input type="radio" name="type" value="Owner">Owner</label>
+                    <label><input type="radio" name="type" value="Contractor">Contractor</label>
+                    <label><input type="radio" name="type" value="Member">Member</label>
                 </div>
-                <form class="login">
+                <form class="login" action="/login" method="POST">
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="User name / Email">
+                        <input type="text" class="login__input" placeholder="User name / Email" name="email">
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password">
+                        <input type="number" class="login__input" placeholder="Code" name="code">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Password" name="password">
                     </div>
                     <button class="button login__submit">
                         <span class="button__text">Log In Now</span>

@@ -109,6 +109,31 @@ app.post("/register",async (req,res)=>{
     return res.redirect('signup_success.html')
 
 })
+app.post('/login', async (req, res) => {
+    var email = req.body.email;
+    var code = req.body.code;
+    var type = req.body.type;
+    var password = req.body.password;
+
+    try {
+        const userDoc = await db.collection('admin').findOne({ email });
+
+        if (!userDoc) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const passOk=bcrypt.compareSync(password,userDoc.password)
+        if(passOk){
+            return(res.redirect('signup_success.html'))
+        }
+        else{
+            alert("wrong password")
+        }
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+});
 app.listen(port,()=>{
     console.log(`app running on ${port}`)
 })
