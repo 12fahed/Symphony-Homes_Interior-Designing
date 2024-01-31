@@ -101,7 +101,9 @@ app.post("/register",async (req,res)=>{
         })
         console.log("Message sent:"+info.messageId)
     }
+    if(type=="Owner"){
     main().catch(e=>console.log(e))
+    }
 
     var data = {
         "name": name,
