@@ -152,6 +152,7 @@ nav ul li a:hover {
   padding-top: 20px;
   background-color: var(--background-light);
   border-radius: 15px;
+  border-color: antiquewhite;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -299,5 +300,5 @@ nav ul li a:hover {
 }
 
 .login__input::placeholder {
-  color: rgb(71, 71, 71); /* Set the desired color for the placeholder text */
+  color: antiquewhite; /* Set the desired color for the placeholder text */
 }
