@@ -15,7 +15,7 @@
   <body>
     <div class="page d-flex">
       <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0">Yash Thange</h3>
+        <h3 class="p-relative txt-c mt-0" id="header-name"></h3>
         <ul>
           <li>
             <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="admindashboard.html">
@@ -151,6 +151,10 @@
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
+                let n=document.querySelector("#header-name");
+                let nam = localStorage.getItem("mainName");
+                n.innerText=nam;
+                
         
     </script>
 

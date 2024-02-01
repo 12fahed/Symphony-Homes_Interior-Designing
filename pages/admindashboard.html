@@ -589,9 +589,10 @@
       // console.log("adfsdfsdf",d);
     
         
-      cor.innerText=data.name;
-      
-              d=data
+              cor.innerText=data.name;
+
+              localStorage.setItem("mainName", data.name);
+                d=data
                 // Use the received data in script.js
                 console.log('Received data:', data);
             }
