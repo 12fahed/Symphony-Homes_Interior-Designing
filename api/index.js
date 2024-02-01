@@ -149,7 +149,7 @@ app.post('/login', async (req, res) => {
         }
         id=userDoc.id;
         const passOk=bcrypt.compareSync(password,userDoc.password)
-        if(passOk){
+        if((passOk)&&(code==id)){
             temp=userDoc;
             console.log(temp.role)
             if((temp.role=="Member")||(temp.role=="Owner"))
