@@ -191,6 +191,29 @@ app.get('/search', async (req, res) => {
      res.header('Access-Control-Allow-Origin', '*')
     res.json(temp);
 });
+app.post('/events', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    
+    const receivedArray = req.body.eventsArr;
+    const completed=req.body.a;
+    console.log('Received Array:', receivedArray);
+    var data={
+        "id":temp.id,
+        "notasks":receivedArray.length,
+        "completetasks":completed
+        
+    }
+    console.log(data)
+
+    db.collection('tasks').insertOne(data,(err,collection)=>{
+        if(err){
+            throw err;
+        }
+        console.log("Record Inserted Successfully");
+    });
+
+    res.json({ message: 'Array received successfully' });
+});
 app.listen(port,()=>{
     console.log(`app running on ${port}`)
 })

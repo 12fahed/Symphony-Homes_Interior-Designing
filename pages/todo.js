@@ -18,6 +18,7 @@ const calendar = document.querySelector(".calendar"),
   addEventSubmit = document.querySelector(".add-event-btn ");
 
 let today = new Date();
+var a=0;
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
@@ -433,6 +434,7 @@ eventsContainer.addEventListener("click", (e) => {
             if (item.title === eventTitle) {
               event.events.splice(index, 1);
             }
+            a++;
           });
           //if no events left in a day then remove that day from eventsArr
           if (event.events.length === 0) {
@@ -462,7 +464,29 @@ function getEvents() {
     return;
   }
   eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+  document.addEventListener('DOMContentLoaded', () => {
+  fetch('http://localhost:4000/events', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ eventsArr },{a}),
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => {
+    // Handle the response from the backend
+    console.log(data);
+})
+.catch(error => {
+    console.error('Error:', error);
+});
 }
+  )}
 
 function convertTime(time) {
   //convert time to 24 hour format
