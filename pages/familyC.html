@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customers</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="page d-flex">
+      <div class="sidebar bg-white p-20 p-relative">
+        <h3 class="p-relative txt-c mt-0" id="header-name"></h3>
+        <ul>
+          <li>
+            <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="admindashboardC.html">
+              <i class="fa-regular fa-chart-bar fa-fw"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+              <i class="fa-solid fa-gear fa-fw"></i>
+              <span>Settings</span>
+            </a>
+          </li> -->
+          <!-- <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
+              <i class="fa-regular fa-user fa-fw"></i>
+              <span>Profile</span>
+            </a>
+          </li> -->
+          <!-- <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
+              <i class="fa-solid fa-diagram-project fa-fw"></i>
+              <span>Projects</span>
+            </a>
+          </li> -->
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="familyC.html">
+              <i class="fa-solid fa-user"></i>
+              <span>Customer List</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
+              <i class="fa-regular fa-circle-user fa-fw"></i>
+              <span>Friends</span>
+            </a>
+          </li> -->
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="progressC.html">
+              <i class="fa-solid fa-bars-progress"></i>
+              <span>Progress</span>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="financeC.html">
+              <i class="fa-regular fa-credit-card fa-fw"></i>
+              <span>Budget</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="content w-full">
+        <!-- Start Head -->
+        <div class="head bg-white p-15 between-flex">
+          <div class="search p-relative">
+            <input class="p-10" type="search" placeholder="Type A Keyword" />
+          </div>
+          <div class="icons d-flex align-center">
+            <span class="notification p-relative">
+              <i class="fa-regular fa-bell fa-lg"></i>
+            </span>
+            <img src="imgs/avatar.png" alt="" />
+          </div>
+        </div>
+        <!-- End Head -->
+        <h1 class="p-relative">Customers</h1>
+  
+        <div class="projects p-20 bg-white rad-10 m-20">
+          <h2 class="mt-0 mb-20"></h2>
+          <div class="responsive-table">
+            <table class="fs-15 w-full">
+              <thead>
+
+                <tr>
+                  <td>Name</td>
+                  <td>Mail Id</td>
+                  <td>Phone Number</td>
+                  <td>Feedbacks Given</td>
+                </tr>
+
+              </thead>
+              <tbody id="table">
+
+                
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .custom-btn {
+        height: 2rem;
+        width: 5.5rem;
+        background-color: rgb(28, 209, 28);
+        color: white;
+        border-radius: 1rem;
+        border: none;
+        font-family: "Open Sans", sans-serif;
+      }
+  
+      .custom-btn:hover {
+        cursor: pointer;
+        background-color: rgb(40, 189, 40);
+      }
+
+    </style>
+    <script>
+       fetch(`http://localhost:4000/search`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    let table=document.querySelector("#table");
+                    let el=document.createElement("tr");
+                    let l=data.length;
+                    console.log(data)
+                    el.innerHTML=`
+                    <td>${data[l-1].name}</td>
+                    <td>${data[l-1].email}</td>
+                    <td>+91 ${data[l-1].phno}</td>
+                    <td><span class="label btn-shape bg-orange c-white btn11">Pending</span></td>
+                    `;
+                    table.appendChild(el);
+                    // Handle the received data
+                    console.log('Received data:', data);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+                let n=document.querySelector("#header-name");
+                let nam = localStorage.getItem("mainName");
+                n.innerText=nam;
+                
+        
+    </script>
+
+  </body>
+</html>

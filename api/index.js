@@ -157,7 +157,7 @@ app.post('/login', async (req, res) => {
             return(res.redirect('postlogin.html'))
            }
            else{
-            return(res.redirect('admindashboard.html'))
+            return(res.redirect('admindashboardC.html'))
            }
            
         }
