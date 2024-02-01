@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Roboto:wght@400;500&family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
   --primary-color: #0ea5e9;
@@ -152,6 +152,7 @@ nav ul li a:hover {
   padding-top: 20px;
   background-color: var(--background-light);
   border-radius: 15px;
+  border-color: antiquewhite;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -207,6 +208,7 @@ nav ul li a:hover {
   transition: .2s;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
   transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -300,4 +302,5 @@ nav ul li a:hover {
 
 .login__input::placeholder {
   color: rgb(71, 71, 71); /* Set the desired color for the placeholder text */
+  font-family: 'Montserrat', sans-serif;
 }

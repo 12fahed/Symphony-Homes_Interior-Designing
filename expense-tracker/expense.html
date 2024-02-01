@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="stylesheet" href="expense.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="heading">Product Expenses Tracker</h1>
+    <div class="wrapper">
+      <div class="container">
+        <div class="form_wrapper">
+          <form>
+            <label for="total-money">Total Budget:</label>
+            <input type="number" id="total_budget" />
+          </form>
+          <form>
+            <div>
+              <label for="product-name">Product Name:</label>
+              <input type="text" id="product_name" />
+            </div>
+            <div>
+              <label for="product-price">Price:</label>
+              <input type="number" id="product_price" />
+            </div>
+            <div>
+              <label for="numberofproduct">Number of Product:</label>
+              <input
+                type="number"
+                id="numberofproduct"
+                min="1"
+                max="100000"
+                value="1"
+              />
+            </div>
+            <button type="button" id="add_product">Add Product</button>
+          </form>
+        </div>
+        <div class="product_table_and_result">
+          <table id="product_table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="budget_tacker_info">
+            <div>
+              <span>Expenses</span>
+              <h1 id="total_expenses">0</h1>
+            </div>
+            <div>
+              <span>Remaining</span>
+              <h1 id="remaining_value">0</h1>
+            </div>
+            <div>
+              <span>Total Money</span>
+              <h1 id="total">0</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="expense.js"></script>
+  </body>
+</html>

@@ -97,14 +97,9 @@
                 </tr>
 
               </thead>
-              <tbody>
+              <tbody id="table">
 
-                <tr>
-                  <td>Chinmay Tullu</td>
-                  <td>chinmaytullu15@gmail.com</td>
-                  <td>+91 9969736699</td>
-                  <td><span class="label btn-shape bg-orange c-white btn11">Pending</span></td>
-                </tr>
+                
 
               </tbody>
             </table>
@@ -139,6 +134,16 @@
                     return response.json();
                 })
                 .then(data => {
+                    let table=document.querySelector("#table");
+                    let el=document.createElement("tr");
+                    let l=data.length;
+                    el.innerHTML=`
+                    <td>${data[l-1].name}</td>
+                    <td>${data[l-1].email}</td>
+                    <td>+91 ${data[l-1].phno}</td>
+                    <td><span class="label btn-shape bg-orange c-white btn11">Pending</span></td>
+                    `;
+                    table.appendChild(el);
                     // Handle the received data
                     console.log('Received data:', data);
                 })

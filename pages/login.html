@@ -13,16 +13,19 @@
       </video>
     <div class="container">
         <div class="screen">
-            <div class="screen__content">
+            <div class="screen__content" style="border-color: antiquewhite;">
+            <div class="screen__content" style="font-family: 'Montserrat', helvetica;">
                 <!-- <div class="type" >
                     <label><input type="radio" name="type" value="Owner" class="radio">Owner</label>
                     <label><input type="radio" name="type" value="Contractor" class="radio">Contractor</label>
                     <label><input type="radio" name="type" value="Member" class="radio">Member</label>
                 </div> -->
-                <form class="login" action="/login" method="POST">
+                <h1 style="color: white;" style="font-family: 'Montserrat', helvetica;">Log In</h1>
+                <br>
+                <form class="login" action="/login" method="POST" style="font-family: 'Montserrat', helvetica;">
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="User name / Email" name="email">
+                        <input type="text" class="login__input" placeholder="User name / Email" name="email" >
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
@@ -33,7 +36,7 @@
                         <input type="password" class="login__input" placeholder="Password" name="password">
                     </div>
                     <button class="button login__submit" onclick="submitForm()">
-                        <span class="button__text">Log In Now</span>
+                        <span class="button__text" style="color: antiquewhite;">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>				
                 </form>

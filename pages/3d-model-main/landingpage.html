@@ -6,54 +6,62 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 1.37.1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	
 	<link href="style.css" rel="stylesheet">
-	<!-- The following libraries and polyfills are recommended to maximize browser support -->
-    <!-- NOTE: you must adjust the paths as appropriate for your project -->
-    
-    <!--  REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
-     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+	<link rel="stylesheet" href="/pages/mai.css">
 
-    <!--  OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
-	<!--     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script> -->
+     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> s
 
-    <!--  OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
-	    <!-- <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script> -->
-    
-    <!--  OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
-	<!--
-   <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-	-->
+
 </head>
 
 <body>
-	<nav>
-        <div class="nav__logo"><a href="#"></a></div>
-        <ul class="nav__links" id="nav-links">
-          <li class="link"><a href="#home">Student</a></li>
-          <li class="link"><a href="./A.html" target="_blank">Assessment</a></li>
-          <li class="link"><a href="#stats">Workspace</a></li>
-          <li class="link"><a href="#blog">Courses</a></li>
-          <li class="link"><a href="resources.html">Resources</a></li>
-          <li class="link"><a href="comment.html">Community</a></li>
-        </ul>
+
+
+	<nav style="position: fixed; font-family: Montserrat,helvetica;">
+		
+		<div class="nav__logo">
+			<a href="#"></a>
+				<img src="/pages/assets/Screenshot_2024-01-31_230818-removebg-preview.png" style="width: 140px; padding-left: 20px;">
+			</a>
+		</div>
+
+
+			<ul class="nav__links" id="nav-links">
+				<li class="link"><a href="#home">Home</a></li>
+				<li class="link"><a href="./A.html" target="_blank">Task Managment</a></li>
+				<li class="link"><a href="#stats">Connect</a></li>
+				<li class="link"><a href="#blog">Budget Track</a></li>
+				<li class="link"><a href="resources.html">Dashboard</a></li>
+				<li class="link"><a href="comment.html">Contact</a></li>
+			  </ul>
+
+			  <a href="../register.html">
+			<button class="my-button" style="margin:30px" style="text-decoration: none; color: white;font-family: 'Montserrat', helvetica;" >Log in / Sign up</button>
+				</a>
+
     </nav>
+	
+	<div class="model-type">
 	<!-- 3D content for your site: -->
 	<div class="container">
-	<div class="company-name">
+		<div class="company-name">
 		<h1></h1>
 	</div>
-	<div class="model-bg">
+
+	<div class="model-bg" style="background: center url(/pages/assets/modelbg.jpg); height: 800px;">
 		<model-viewer src="scene.gltf" alt="Slum house" shadow-intensity="1" camera-controls auto-rotate disable-zoom >
 		</model-viewer>
 	</div>
 
-	<div class="text typewriter">
+	<div class="text typewriter" style="font-family: 'Montserrat', helvetica;">
 		<h1>Every Room Tells a Story,<br> Let Us Design Yours.</h1>
-		<button class="my-button" style="margin:30px" style="text-decoration: none; color: grey" ><a href="../register.html">Start your journey</a></button>
+	<a href="../register.html">
+	<button class="my-button" style="margin:30px" style="text-decoration: none; color: white;font-family: 'Montserrat', helvetica;" >Start your journey</button>
+	</a>
 	</div>
-    
+	</div>
+
+	
 	<!-- 💁 Include both scripts below to support all browsers! -->
 
 	<!-- Loads <model-viewer> for modern browsers: -->
@@ -64,243 +72,146 @@
 	<!-- <script nomodule
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
 	</script> -->
+	<br><br><br>
 	<section class="section__container about__container" id="about">
-		<div class="about__image">
-		  <img src="assets/about.jpg" alt="about" />
-		</div>
-		<div class="about__content">
-		  <h3>ABOUT US</h3>
-		  <h2 class="section__header">
-			Award winning real estate company in Dubai
-		  </h2>
-		  <p class="section__subheader">
-			Whether you're a first-time homebuyer, a seasoned investor, or simply
-			looking for a change, we're here to guide you every step of the way.
-			Our mission is to make your real estate journey smooth and successful.
+
+		<div class="about__content" style="background: center url(/pages/assets/modelbg.jpg);">
+		  <h3 style="color: black; font-family: 'Montserrat', helvetica;">ABOUT US</h3><br>
+		  <h2 class="section__header" style="font-family: 'Montserrat', helvetica;">
+			One stop solution for all interior design needs
+		  </h2><br>
+		  <p class="section__subheader" style="font-family: 'Montserrat', helvetica; font-size: 1.2rem;">
+			An integrated platform is crucial for streamlined communication, collaboration, and efficiency in project management, featuring real-time updates, task management, cost tracking, and a communication hub. Accessibility across platforms ensures effective coordination.
 		  </p>
 		  <div class="about__grid">
-			<div class="about__card">
-			  <h4>PREVIOUS PROJECTS</h4>
+			<div class="about__card" style="font-family: 'Montserrat', helvetica;">
+			  <h4 style="color: black;" style="font-family: 'Montserrat', helvetica;">PREVIOUS PROJECTS</h4>
 			  <p>34+</p>
 			</div>
-			<div class="about__card">
-			  <h4>YEARS EXPERIENCE</h4>
+			<div class="about__card" style="font-family: 'Montserrat', helvetica;">
+			  <h4 style="color: black;" style="font-family: 'Montserrat', helvetica;">YEARS EXPERIENCE</h4>
 			  <p>20+</p>
 			</div>
-			<div class="about__card">
-			  <h4>ONGOING PROJECTS</h4>
+			<div class="about__card" style="font-family: 'Montserrat', helvetica;">
+			  <h4 style="color: black;" style="font-family: 'Montserrat', helvetica;">ONGOING PROJECTS</h4>
 			  <p>12</p>
 			</div>
 		  </div>
 		</div>
+		<div class="about__image">
+			<img src="/pages/assets/about.png" alt="about" width="400px"/>
+		  </div>
 	  </section>
   
-	  <!-- <section class="project__container" id="project">
-		<div class="project__header">
-		  <div>
-			<h2 class="section__header">Ongoing Projects</h2>
-			<p class="section__subheader">
-			  We are dedicated to helping you find your dream property with ease
-			  and confidence.
-			</p>
-		  </div>
-		  <div class="project__nav">
-			<span><i class="ri-arrow-left-line"></i></span>
-			<span><i class="ri-arrow-right-line"></i></span>
-		  </div>
-		</div>
-		
-		<div class="swiper" style="display: flex;">
+	  <link rel="stylesheet" href="mai.css">
+
+      <br><br><br><br><br>
+	  <section class="tour">
+			<div class="section__container tour__container">
+			  <h4 style="font-family: 'Montserrat', helvetica;">Nurture Your Dream</h4>
+			  <div class="video__container">
+				<video src="/pages/assets/istockphoto-1405798401-640_adpp_is.mp4" autoplay loop muted></video>
+			  </div>
+			</div>
+		  </section>
+	  
 		  
-		  <div class="swiper-wrapper">
-			
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-1.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Palm View Apartments</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Palm Jumeirah, Dubai
-					</p>
-					<button>Book Now</button>
+			 
+	  <br><br><br><br><br><br>
+		  <section class="section__container client__container" id="client">
+			<div class="section__header">
+			  <h2 class="section__title" style="font-family: 'Montserrat', helvetica;">Clients Feedback</h2>
+			 
+			</div>
+			<div class="client__grid">
+			  <div class="client__card">
+				<div class="client__card__header">
+				  <span><i class="ri-double-quotes-r"></i></span>
+				  <div class="ratings">
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-half-fill"></i></span>
+					<span><i class="ri-star-line"></i></span>
 				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-half-fill"></i></span>
-					  <span><i class="ri-star-line"></i></span>
-					</div>
-					<div class="price">1200$</div>
+				</div>
+				<p style="font-family: 'Montserrat', helvetica;">
+				  I had the most incredible experience using this tour and travel
+				  website. From booking my flights and accommodations to discovering
+				  unique local activities, everything was seamless and well-organized.
+				  It made my trip stress-free and unforgettable. I can't wait to plan
+				  my next adventure with them!
+				</p>
+				<div class="client__card__footer">
+				  <img src="/pages/assets/client.png" alt="client" />
+				  <div class="client__details" style="font-family: 'Montserrat', helvetica;">
+					<h4>Gayatri Ganesh</h4>
+					<p>Business Manager</p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="client__card">
+				<div class="client__card__header">
+				  <span><i class="ri-double-quotes-r"></i></span>
+				  <div class="ratings">
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+				  </div>
+				</div>
+				<p style="font-family: 'Montserrat', helvetica;">
+				  As a frequent traveler, I've used various tour and travel websites,
+				  but this one stands out for its attention to detail and personalized
+				  recommendations. The itineraries they offer are thoughtfully
+				  curated, and the insider tips on their blog were a game-changer for
+				  my recent trip. Highly recommended! Thanks to them.
+				</p>
+				<div class="client__card__footer">
+				  <img src="/pages/assets/client2.png" alt="client" />
+				  <div class="client__details" style="font-family: 'Montserrat', helvetica;">
+					<h4>Tanmay More</h4>
+					<p>CEO</p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="client__card">
+				<div class="client__card__header">
+				  <span><i class="ri-double-quotes-r"></i></span>
+				  <div class="ratings">
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-fill"></i></span>
+					<span><i class="ri-star-line"></i></span>
+				  </div>
+				</div>
+				<p style="font-family: 'Montserrat', helvetica;">
+				  I'm not an experienced traveler, but this website made me feel like
+				  a pro. The customer support team was incredibly helpful in guiding
+				  me through the planning process, and their city guides provided
+				  valuable insights. Thanks to them, I had a fantastic time exploring
+				  a new city with confidence. I can't thank them enough!
+				</p>
+				<div class="client__card__footer">
+				  <img src="/pages/assets/client3.png" alt="client" />
+				  <div class="client__details" style="font-family: 'Montserrat', helvetica;">
+					<h4>Dhruv Mehta</h4>
+					<p>Content Writer</p>
 				  </div>
 				</div>
 			  </div>
 			</div>
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-2.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Cityscape Residences</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Downtown Dubai
-					</p>
-					<button>Book Now</button>
-				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-half-fill"></i></span>
-					</div>
-					<div class="price">1000$</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-3.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Marina Heights</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Dubai Marina
-					</p>
-					<button>Book Now</button>
-				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					</div>
-					<div class="price">1100$</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-4.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Desert Rose Flats</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Al Barsha, Dubai
-					</p>
-					<button>Book Now</button>
-				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-half-fill"></i></span>
-					</div>
-					<div class="price">1500$</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-5.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Golden Sands Suites</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Bur Dubai
-					</p>
-					<button>Book Now</button>
-				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-half-fill"></i></span>
-					  <span><i class="ri-star-line"></i></span>
-					</div>
-					<div class="price">1300$</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="swiper-slide">
-			  <div class="project__card">
-				<img src="assets/project-6.jpg" alt="project" />
-				<div class="project__content">
-				  <div class="project__details">
-					<h4>Bliss Residences</h4>
-					<p>
-					  <span><i class="ri-map-pin-line"></i></span>
-					  Jumeirah Beach, Dubai
-					</p>
-					<button>Book Now</button>
-				  </div>
-				  <div class="project__ratings">
-					<div class="stars">
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-fill"></i></span>
-					  <span><i class="ri-star-line"></i></span>
-					</div>
-					<div class="price">1400$</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </section>
-  
-	  <section class="section__container contact__container" id="contact">
-		<div class="contact__image">
-		  <img src="assets/contact.jpg" alt="contact" />
-		</div>
-		<div class="contact__content">
-		  <h2 class="section__header">Contact Us</h2>
-		  <p class="section__subheader">
-			Discover the difference, where expertise meets excellence in real
-			estate. Let's embark on this exciting journey together.
-		  </p>
-		  <form action="#">
-			<div class="form__group">
-			  <input type="text" placeholder="First Name" />
-			  <input type="text" placeholder="Last Name" />
-			</div>
-			<div class="form__group">
-			  <input type="text" placeholder="Email Address" />
-			  <input type="text" placeholder="Phone Number" />
-			</div>
-			<textarea cols="30" rows="5" placeholder="Description"></textarea>
-			<button>SEND MESSAGE</button>
-		  </form>
-		</div>
-	  </section> -->
+		</section>
+
   
 	  <footer class="footer">
 		<div class="section__container footer__container">
 		  <div class="footer__col">
-			<h4>HOLUX</h4>
-			<p>
-			  Our team of seasoned professionals is committed to providing you
-			  with exceptional service, in-depth market knowledge, and
-			  personalized solutions tailored to your unique needs.
+			<h4 style="font-family: 'Montserrat', helvetica; font-size: 1.8rem;">Symphony Spaces</h4>
+			<p style="font-family: 'Montserrat', helvetica; font-size: 1.1rem">
+				Analytical tools for monitoring completion rates and a feedback collection system from stakeholders at various project stages would provide valuable insights. 
 			</p>
 			<div class="footer__socials">
 			  <span>
@@ -314,37 +225,34 @@
 			  </span>
 			</div>
 		  </div>
-		  <div class="footer__col">
+		  <div class="footer__col" style="font-family: 'Montserrat', helvetica;">
 			<h4>Company Info</h4>
 			<a href="#home">Home</a>
 			<a href="#about">About</a>
 			<a href="#project">Project</a>
 			<a href="#contact">Contact</a>
 		  </div>
-		  <div class="footer__col">
+		  <div class="footer__col" style="font-family: 'Montserrat', helvetica;">
 			<h4>Resources</h4>
 			<a href="#">Terms</a>
 			<a href="#">Conditions</a>
 			<a href="#">Policy</a>
 		  </div>
-		  <div class="footer__col">
+		  <div class="footer__col" style="font-family: 'Montserrat', helvetica;">
 			<h4>Contact</h4>
 			<a href="#">
-			  <span><i class="ri-mail-line"></i></span> holux@gmail.com
+			  <span><i class="ri-mail-line"></i></span> symphonyspaces@gmail.com
 			</a>
 			<a href="#">
 			  <span><i class="ri-phone-line"></i></span> +91 9876543210
 			</a>
 		  </div>
 		</div>
-		<div class="footer__bar">
-		  Copyright © 2023 Web Design Mastery. All rights reserved.
-		</div>
 	  </footer>
   
 	  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 	  <script src="main.js"></script>
-</div>
+
 
 
 </body>
