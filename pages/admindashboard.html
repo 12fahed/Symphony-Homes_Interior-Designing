@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <div class="page d-flex">
       <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0">Yash Thange</h3>
+        <h3 class="p-relative txt-c mt-0" id="reguser"></h3>
         <ul>
           <li>
             <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="admindashboard.html">
@@ -98,10 +98,9 @@
             </div>
             <img src="imgs/avatar.png" alt="" class="avatar" />
             <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-              <div>YS10 <span class="d-block c-grey fs-14 mt-10">Username</span></div>
-              <div>Student <span class="d-block c-grey fs-14 mt-10">Current Project Code</span></div>
+              <div id="reguser2"> <span class="d-block c-grey fs-14 mt-10" >Username</span></div>
+              <div id="codeid"><span class="d-block c-grey fs-14 mt-10">Current Project Code</span></div>
             </div>
-            <a href="profile.html" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
           </div>
           <!-- End Welcome Widget -->
 
@@ -137,7 +136,7 @@
             </div>
             <div class="target-row mb-20 center-flex orange">
               <div class="icon center-flex">
-                <i class="fa-brands fa-css3-alt fa-lg"></i>
+                <i class="fa-solid fa-lightbulb c-orange"></i>
               </div>
               <div class="details">
                 <span class="fs-14 c-grey"></span>
@@ -151,11 +150,11 @@
             </div>
             <div class="target-row mb-20 center-flex green">
               <div class="icon center-flex">
-                <i class="fa-brands fa-js fa-lg fa-green"></i>
+                <i class="fa-solid fa-solar-panel c-green"></i>
               </div>
               <div class="details">
                 <span class="fs-14 c-grey"></span>
-                <span class="d-block mt-5 mb-10 fw-bold">JavaScript</span>
+                <span class="d-block mt-5 mb-10 fw-bold">Solar Panel</span>
                 <div class="progress p-relative">
                   <span class="bg-green green" style="width: 75%">
                     <span class="bg-green">75%</span>
@@ -567,6 +566,39 @@
 
       </div>
     </div>
+    <script>
+      var d;
+      document.addEventListener('DOMContentLoaded', () => {
+            fetch('http://localhost:4000/getData')
+                .then(response => response.json())
+                .then(data => {
+                  
+                    // Handle the received data in script.js
+                    handleData(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+            function handleData(data) {
+              let cor=document.getElementById('reguser');
+              let cor2=document.getElementById('reguser2');
+              let cod=document.getElementById('codeid');
+              cod.innerHTML=`${data.id}<span class="d-block c-grey fs-14 mt-10">Current Project Code</span>`
+              cor2.innerHTML=`${data.name}<span class="d-block c-grey fs-14 mt-10" >Username</span>`
+      // console.log("adfsdfsdf",d);
+    
+        
+      cor.innerText=data.name;
+      
+              d=data
+                // Use the received data in script.js
+                console.log('Received data:', data);
+            }
+        });
+     
+
+    </script>
 
     <style>
       .custom-btn {

@@ -5,9 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart</title>
     <link rel="stylesheet" href="chat.css">
+
+    <style>
+        .product-stats {
+          justify-content: center;
+          background-color: #d4bdde;
+        }
+      
+        .top-selling-products {
+          width: 80%; /* Adjust the width as per your preference */
+          margin: 0 auto; /* Center the table within its container */
+          border-collapse: collapse;
+        }
+      
+        .top-selling-products th,
+        .top-selling-products td {
+          border: 1px solid BLACK;
+          padding: 8px;
+          text-align: left;
+        }
+      
+        .product-name {
+          align-items: center;
+        }
+      
+        .product-name .icon {
+          margin-right: 8px;
+        }
+      </style>
+      
+      
+
 </head>
 <body>
-    
+    <br>
     <div>
         <label for="chartType">Select Chart Type:</label>
         <select id="chartType" onchange="toggleChart()">
@@ -16,9 +47,11 @@
             <option value="doughnut">Doughnut Chart</option>
             <option value="line">Line Chart</option>
             <option value="polar">Polar Chart</option>
+            <option value="all">All</option>
+
         </select>
     </div>
-
+    <br><br>
     <div class="container">
         <div class="chart" id="barchartContainer">
             <canvas id="barchart" width="600" height="300"></canvas>
@@ -35,37 +68,101 @@
             <canvas id="polar" width="300" height="300"></canvas>
         </div>
     </div>
+
+    <div class="product-stats flex" style="background-color: #d4bdde;">
+        <div class="product-sales stats-box" style="background-color: #d4bdde;">
+          <h2 class="heading"></h2>
+          <canvas id="products"></canvas>
+        </div>
+
+        <div class="top-selling stats-box" style="background-color: #d4bdde;">
+          <!-- <h2 class="heading">Top Selling Product</h2> -->
+          <table class="top-selling-products" height="100%" width="100%" style="background-color: #d4bdde;">
+            <tr>
+              <th style="color: #fff;">ID</th>
+              <th style="color: #fff;">Task</th>
+              <th style="color: #fff;">ETA</th>
+              <!-- <th style="color: #fff;">Sold</th> -->
+            </tr>
+
+            <tr>
+              <td>68231</td>
+              <td>
+                <div class="product-name flex">
+                  <div class="icon">
+                    <ion-icon name="logo-amazon"></ion-icon>
+                  </div>
+                  <p>Lights to be installed</p>
+                </div>
+              </td>
+              <td>3 days</td>
+              <!-- *<td>351</td> -->
+            </tr>
+
+            <tr>
+              <td>68231</td>
+              <td>
+                <div class="product-name iphone flex">
+                  <div class="icon">
+                    <ion-icon name="logo-apple"></ion-icon>
+                  </div>
+                  <p>Door handle installation</p>
+                </div>
+              </td>
+              <td>1 hour</td>
+              <!-- <td>121</td> -->
+            </tr>
+
+            <tr>
+              <td>68231</td>
+              <td>
+                <div class="product-name windows flex">
+                  <div class="icon">
+                    <ion-icon name="logo-microsoft"></ion-icon>
+                  </div>
+                  <p>TV cabinet</p>
+                </div>
+              </td>
+              <td>15 days</td>
+              <!-- <td>195</td> -->
+            </tr>
+          </table>
+        </div>
+      </div>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="chart1.js"></script>
     <script src="chart2.js"></script>
     <script src="chart3.js"></script>
     <script src="chart4.js"></script>
-    <script>
-        function toggleChart() {
-            var selectedChart = document.getElementById("chartType").value;
-    
-            // Hide all charts
-            document.getElementById("barchartContainer").style.display = "none";
-            document.getElementById("doughnutContainer").style.display = "none";
-            document.getElementById("lineContainer").style.display = "none";
-            document.getElementById("polarContainer").style.display = "none";
-    
-            // Show the selected chart or hide all if no valid chart is selected
-            if (selectedChart !== "") {
-                document.getElementById(selectedChart + "Container").style.display = "block";
-            } else {
-                // None selected, hide all charts
-                document.getElementById("barchartContainer").style.display = "none";
-                document.getElementById("doughnutContainer").style.display = "none";
-                document.getElementById("lineContainer").style.display = "none";
-                document.getElementById("polarContainer").style.display = "none";
-            }
+</script>
+<script>
+    function toggleChart() {
+        var selectedChart = document.getElementById("chartType").value;
+
+        // Hide all charts
+
+        document.getElementById("barchartContainer").style.display = "none";
+        document.getElementById("doughnutContainer").style.display = "none";
+        document.getElementById("lineContainer").style.display = "none";
+        document.getElementById("polarContainer").style.display = "none";
+
+
+
+
+
+        if(selectedChart=="all"){
+        document.getElementById("barchartContainer").style.display = "block";
+        document.getElementById("doughnutContainer").style.display = "block";
+        document.getElementById("lineContainer").style.display = "block";
+        document.getElementById("polarContainer").style.display = "block";
+
         }
-    
-        // Call the function on page load to set the default selection
-        window.onload = toggleChart;
-    </script>
+
+                // Show the selected chart
+                document.getElementById(selectedChart + "Container").style.display = "block";
+    }
+</script>
     
     
 </body>

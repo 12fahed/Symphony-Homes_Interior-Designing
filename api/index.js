@@ -15,6 +15,8 @@ const port=4000
 const bcryptSalt=bcrypt.genSaltSync(10)
 const jwtSecret='fase2j34gj4h5gjdnjs';
 var type;
+var id;
+var temp;
 
 
 app.use(cookieParser())
@@ -48,12 +50,25 @@ db.once('open',()=>console.log("connected"))
 app.get('/test',(req,res)=>{
     res.json('test ok');
 });
+
+app.post('/type', (req, res) => {
+    type = req.body.type;
+    
+    // Process the selected gender as needed
+    console.log(':', type);
+
+    // Your backend logic here
+
+    // Respond to the client
+    res.json({ message: 'Data received successfully' });
+});
+
 app.post("/register",async (req,res)=>{
     var name = req.body.name;
     var email = req.body.email;
     var phno = req.body.phno;
     var password = req.body.password;
-
+    var number=req.body.number;
    
         // Check if a user with the email or mobile number already exists
         const existingUser = await db.collection('admin').findOne({
@@ -63,8 +78,13 @@ app.post("/register",async (req,res)=>{
         if (existingUser) {
             return res.status(409).json({ message: 'User with this email or mobile number already exists' });
         }
+        
 
     var randomNumber = parseInt(new Date().getTime());
+    if((type=="Member")||(type=="Contractor"))
+    {
+        randomNumber=number;
+    }
     console.log(randomNumber);
     var html=`Hello ${name} welcome to SymphonySpaces 
     your unique code is ${randomNumber}`
@@ -89,14 +109,17 @@ app.post("/register",async (req,res)=>{
         })
         console.log("Message sent:"+info.messageId)
     }
+    if(type=="Owner"){
     main().catch(e=>console.log(e))
+    }
 
     var data = {
         "name": name,
         "email" : email,
         "phno": phno,
         "password" : bcrypt.hashSync(password,bcryptSalt),
-        "id":randomNumber
+        "id":randomNumber,
+        "role": type
     }
     console.log(data)
 
@@ -107,20 +130,10 @@ app.post("/register",async (req,res)=>{
         console.log("Record Inserted Successfully");
     });
 
-    return res.redirect('signup_success.html')
+    return res.redirect('./3d-model-main/landingpage.html')
 
 })
-app.post('/type', (req, res) => {
-    type = req.body.type;
-    
-    // Process the selected gender as needed
-    console.log(':', type);
 
-    // Your backend logic here
-
-    // Respond to the client
-    res.json({ message: 'Data received successfully' });
-});
 app.post('/login', async (req, res) => {
     var email = req.body.email;
     var code = req.body.code;
@@ -134,10 +147,18 @@ app.post('/login', async (req, res) => {
         if (!userDoc) {
             return res.status(404).json({ message: 'User not found' });
         }
+        id=userDoc.id;
         const passOk=bcrypt.compareSync(password,userDoc.password)
         if(passOk){
-           
+            temp=userDoc;
+            console.log(temp.role)
+            if((temp.role=="Member")||(temp.role=="Owner"))
+           {
             return(res.redirect('postlogin.html'))
+           }
+           else{
+            return(res.redirect('admindashboard.html'))
+           }
            
         }
         else{
@@ -148,6 +169,27 @@ app.post('/login', async (req, res) => {
         console.error(error);
         return res.status(500).json({ message: 'Internal server error' });
     }
+});
+app.get('/search', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    
+    try {
+      const userId =temp.id
+  
+      // Find users with the same ID and role 'members'
+      const users = await db.collection('admin').find({ id: userId, role: "Member" }).toArray();
+  
+      res.json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  app.get('/getData', (req, res) => {
+    
+    console.log(temp)
+     res.header('Access-Control-Allow-Origin', '*')
+    res.json(temp);
 });
 app.listen(port,()=>{
     console.log(`app running on ${port}`)
