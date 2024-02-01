@@ -174,7 +174,7 @@ app.get('/search', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*')
     
     try {
-      const userId =temp.id
+      const userId =id
   
       // Find users with the same ID and role 'members'
       const users = await db.collection('admin').find({ id: userId, role: "Member" }).toArray();
