@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .feedback-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .rating-container label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .stars-container {
+            display: flex;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .stars-container span {
+            margin-right: 5px;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .stars-container span:hover,
+        .stars-container span.active {
+            color: #FFD700;
+        }
+
+        .task-dropdown {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #0ea5e9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0284c7;
+        }
+
+        .feedback-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feedback-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .feedback-item strong {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <h2>Feedback Page</h2>
+
+        <div class="rating-container">
+            <label for="rating">Rate Us:</label>
+            <div class="stars-container" id="stars">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+        </div>
+
+        <!-- Add the dropdown for tasks -->
+        <select class="task-dropdown" id="taskDropdown" onchange="unlockTextArea()">
+            <option value="" disabled selected>Select a task</option>
+            <option value="Lightnings">Lightnings</option>
+            <option value="Coloring">Coloring</option>
+            <option value="Flooring">Flooring</option>
+            <!-- Add more tasks as needed -->
+        </select>
+
+        <!-- Disable the textarea by default -->
+        <textarea id="feedbackInput" placeholder="Write your feedback here..." rows="4" style="width: 100%; margin-bottom: 10px;" disabled></textarea>
+
+        <button onclick="submitFeedback()">Submit Feedback</button>
+
+        <h3>Recent Feedback:</h3>
+        <ul class="feedback-list" id="feedbackList">
+            <!-- Feedback items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        const feedbackInput = document.getElementById('feedbackInput');
+        const feedbackList = document.getElementById('feedbackList');
+
+        let currentRating = 0;
+
+        // Load feedback from localStorage on page load
+        window.addEventListener('load', () => {
+            const storedRating = localStorage.getItem('rating');
+            const storedFeedback = localStorage.getItem('feedback');
+
+            if (storedRating && storedFeedback) {
+                currentRating = parseInt(storedRating, 10);
+                feedbackInput.value = storedFeedback;
+                updateStars();
+            }
+
+            loadFeedbackFromLocalStorage();
+        });
+
+        // Add event listeners to stars for rating
+        starsContainer.addEventListener('click', (event) => {
+            if (event.target.tagName === 'SPAN') {
+                currentRating = parseInt(event.target.getAttribute('data-value'), 10);
+                updateStars();
+                saveRatingToLocalStorage();
+            }
+        });
+
+        // Function to unlock the textarea when a task is selected
+        function unlockTextArea() {
+            const taskDropdown = document.getElementById('taskDropdown');
+            feedbackInput.disabled = taskDropdown.value === '';
+            if (taskDropdown.value === '') {
+                feedbackInput.value = '';
+            }
+        }
+
+        // Function to update the star ratings visually
+        function updateStars() {
+            const stars = starsContainer.children;
+            for (let i = 0; i < stars.length; i++) {
+                if (i < currentRating) {
+                    stars[i].classList.add('active');
+                } else {
+                    stars[i].classList.remove('active');
+                }
+            }
+        }
+
+        // Function to submit feedback
+        function submitFeedback() {
+            if (currentRating === 0) {
+                alert('Please provide a rating before submitting feedback.');
+                return;
+            }
+
+            const feedbackText = feedbackInput.value.trim();
+            if (feedbackText === '') {
+                alert('Please provide feedback text.');
+                return;
+            }
+
+            // Create a new feedback item
+            const feedbackItem = document.createElement('li');
+            feedbackItem.classList.add('feedback-item');
+            feedbackItem.innerHTML = `<strong>Rating:</strong> ${currentRating}/5 <br> <strong>Feedback:</strong> ${feedbackText}`;
+
+            // Add the feedback item to the list
+            feedbackList.appendChild(feedbackItem);
+
+            // Save feedback to localStorage
+            saveFeedbackToLocalStorage(feedbackText);
+
+            // Reset the rating and input
+            currentRating = 0;
+            updateStars();
+            feedbackInput.value = '';
+            saveRatingToLocalStorage();
+        }
+
+        // Function to save rating to localStorage
+        function saveRatingToLocalStorage() {
+            localStorage.setItem('rating', currentRating);
+        }
+
+        // Function to save feedback to localStorage
+        function saveFeedbackToLocalStorage(feedbackText) {
+            // Retrieve existing feedback array from localStorage
+            let existingFeedback = localStorage.getItem('feedbackArray');
+            existingFeedback = existingFeedback ? JSON.parse(existingFeedback) : [];
+
+            // Add new feedback to the array
+            existingFeedback.push({
+                rating: currentRating,
+                feedback: feedbackText
+            });
+
+            // Save the updated array back to localStorage
+            localStorage.setItem('feedbackArray', JSON.stringify(existingFeedback));
+
+            // Load feedback from localStorage
+            loadFeedbackFromLocalStorage();
+        }
+
+        // Function to load feedback from localStorage
+        function loadFeedbackFromLocalStorage() {
+            // Clear existing feedback list
+            feedbackList.innerHTML = '';
+
+            // Retrieve feedback array from localStorage
+            let existingFeedback = localStorage.getItem('feedbackArray');
+            existingFeedback = existingFeedback ? JSON.parse(existingFeedback) : [];
+
+            // Display each feedback item
+            existingFeedback.forEach(item => {
+                const feedbackItem = document.createElement('li');
+                feedbackItem.classList.add('feedback-item');
+                feedbackItem.innerHTML = `<strong>Rating:</strong> ${item.rating}/5 <br> <strong>Feedback:</strong> ${item.feedback}`;
+                feedbackList.appendChild(feedbackItem);
+            });
+        }
+    </script>
+</body>
+</html>
