@@ -149,7 +149,7 @@ app.post('/login', async (req, res) => {
         }
         id=userDoc.id;
         const passOk=bcrypt.compareSync(password,userDoc.password)
-        if(passOk){
+        if((passOk)&&(code==id)){
             temp=userDoc;
             console.log(temp.role)
             if((temp.role=="Member")||(temp.role=="Owner"))
@@ -157,7 +157,7 @@ app.post('/login', async (req, res) => {
             return(res.redirect('postlogin.html'))
            }
            else{
-            return(res.redirect('admindashboard.html'))
+            return(res.redirect('admindashboardC.html'))
            }
            
         }
@@ -174,7 +174,7 @@ app.get('/search', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*')
     
     try {
-      const userId =temp.id
+      const userId =id
   
       // Find users with the same ID and role 'members'
       const users = await db.collection('admin').find({ id: userId, role: "Member" }).toArray();
@@ -190,6 +190,29 @@ app.get('/search', async (req, res) => {
     console.log(temp)
      res.header('Access-Control-Allow-Origin', '*')
     res.json(temp);
+});
+app.post('/events', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    
+    const receivedArray = req.body.eventsArr;
+    const completed=req.body.a;
+    console.log('Received Array:', receivedArray);
+    var data={
+        "id":temp.id,
+        "notasks":receivedArray.length,
+        "completetasks":completed
+        
+    }
+    console.log(data)
+
+    db.collection('tasks').insertOne(data,(err,collection)=>{
+        if(err){
+            throw err;
+        }
+        console.log("Record Inserted Successfully");
+    });
+
+    res.json({ message: 'Array received successfully' });
 });
 app.listen(port,()=>{
     console.log(`app running on ${port}`)
